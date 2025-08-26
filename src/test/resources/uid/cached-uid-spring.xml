@@ -5,9 +5,10 @@
 
 	<!-- UID generator -->
 	<bean id="disposableWorkerIdAssigner" class="com.baidu.fsg.uid.worker.DisposableWorkerIdAssigner" />
+    <bean id="hostPortWorkerIdAssigner" class="com.baidu.fsg.uid.worker.HostPortWorkerIdAssigner" />
 
 	<bean id="cachedUidGenerator" class="com.baidu.fsg.uid.impl.CachedUidGenerator">
-		<property name="workerIdAssigner" ref="disposableWorkerIdAssigner" />
+		<property name="workerIdAssigner" ref="hostPortWorkerIdAssigner" />
 
 		<!-- 以下为可选配置, 如未指定将采用默认值 -->
 		<!-- RingBuffer size扩容参数, 可提高UID生成的吞吐量. --> 
